@@ -53,6 +53,7 @@ sdk.dir=/path/to/Android/Sdk
 و سپس:
 
 ```bash
+chmod +x gradlew
 ./gradlew :app:assembleRelease
 ```
 
@@ -127,6 +128,7 @@ Download the latest APK from [Releases](https://github.com/amirmahdipa77-tech/ha
 git clone https://github.com/amirmahdipa77-tech/hamzaban.git
 cd hamzaban
 echo "sdk.dir=/path/to/Android/Sdk" > local.properties
+chmod +x gradlew
 ./gradlew :app:assembleRelease
 ```
 
