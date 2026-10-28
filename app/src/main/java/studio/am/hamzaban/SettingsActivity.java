@@ -1,52 +1,42 @@
-package studio.am.hamzaban.ui;
+package studio.am.hamzaban;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
-import studio.am.hamzaban.App;
-import studio.am.hamzaban.BuildConfig;
-import studio.am.hamzaban.R;
 import studio.am.hamzaban.core.Lexicon;
+import studio.am.hamzaban.core.NmtEngine;
 import studio.am.hamzaban.data.Prefs;
-import studio.am.hamzaban.databinding.FragmentSettingsBinding;
+import studio.am.hamzaban.databinding.ActivitySettingsBinding;
 import studio.am.hamzaban.util.Fa;
 import studio.am.hamzaban.util.Ui;
 
-public class SettingsFragment extends Fragment {
+public class SettingsActivity extends BaseActivity {
 
     private static final String GITHUB_URL = "https://github.com/amirmahdipa77-tech/hamzaban";
 
-    private FragmentSettingsBinding b;
+    private ActivitySettingsBinding b;
     private Prefs prefs;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        b = FragmentSettingsBinding.inflate(inflater, container, false);
-        return b.getRoot();
-    }
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        b = ActivitySettingsBinding.inflate(getLayoutInflater());
+        setContentView(b.getRoot());
+        Ui.edgeToEdge(this);
+        Ui.padTop(b.appBar);
+        Ui.padBottom(b.scroll);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        prefs = new Prefs(requireContext());
+        prefs = new Prefs(this);
+        b.btnBack.setOnClickListener(v -> finish());
 
-        b.versionText.setText(getString(R.string.about_version,
-                Fa.num(requireContext(), BuildConfig.VERSION_NAME)));
-
-        b.segThemeSystem.setOnClickListener(v -> setTheme(0));
-        b.segThemeLight.setOnClickListener(v -> setTheme(1));
-        b.segThemeDark.setOnClickListener(v -> setTheme(2));
+        b.segThemeSystem.setOnClickListener(v -> applyThemeMode(0));
+        b.segThemeLight.setOnClickListener(v -> applyThemeMode(1));
+        b.segThemeDark.setOnClickListener(v -> applyThemeMode(2));
         b.segLangFa.setOnClickListener(v -> setLang("fa"));
         b.segLangEn.setOnClickListener(v -> setLang("en"));
         b.segFontSmall.setOnClickListener(v -> setFont(0));
@@ -57,27 +47,25 @@ public class SettingsFragment extends Fragment {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URL)));
             } catch (Throwable t) {
-                Ui.toast(requireContext(), getString(R.string.err_generic));
+                Ui.toast(this, getString(R.string.err_generic));
             }
         });
 
+        b.versionText.setText(Fa.num(this, BuildConfig.VERSION_NAME));
         renderSegments();
         renderData();
     }
 
     private void renderData() {
         Lexicon lex = Lexicon.ready();
-        if (lex == null) {
-            b.dataEntries.setText("—");
-            b.dataSize.setText("—");
-            return;
-        }
-        b.dataEntries.setText(Fa.num(requireContext(), String.valueOf(lex.recordCount())));
-        long kb = Math.max(1, lex.sizeBytes() / 1024L);
-        b.dataSize.setText(Fa.num(requireContext(), kb + " KB"));
+        b.dataEntries.setText(lex == null
+                ? "—"
+                : Fa.num(this, String.valueOf(lex.recordCount())));
+        boolean ready = NmtEngine.isReady(prefs.src(), prefs.tgt());
+        b.engineState.setText(ready ? R.string.engine_ready : R.string.engine_loading);
     }
 
-    private void setTheme(int mode) {
+    private void applyThemeMode(int mode) {
         if (prefs.theme() == mode) return;
         prefs.setTheme(mode);
         renderSegments();
@@ -88,17 +76,16 @@ public class SettingsFragment extends Fragment {
     private void setLang(String tag) {
         if (tag.equals(prefs.lang())) return;
         prefs.setLang(tag);
-        if (getActivity() != null) getActivity().recreate();
+        recreate();
     }
 
     private void setFont(int index) {
         if (prefs.fontIndex() == index) return;
         prefs.setFontIndex(index);
-        if (getActivity() != null) getActivity().recreate();
+        recreate();
     }
 
     private void renderSegments() {
-        if (b == null || prefs == null) return;
         styleSeg(b.segThemeSystem, prefs.theme() == 0);
         styleSeg(b.segThemeLight, prefs.theme() == 1);
         styleSeg(b.segThemeDark, prefs.theme() == 2);
@@ -112,15 +99,15 @@ public class SettingsFragment extends Fragment {
     private void styleSeg(TextView v, boolean active) {
         try {
             v.setBackgroundResource(active ? R.drawable.bg_seg_on : R.drawable.bg_seg_off);
-            v.setTextColor(ContextCompat.getColor(requireContext(),
-                    active ? R.color.on_btn : R.color.text_dim));
+            v.setTextColor(ContextCompat.getColor(this,
+                    active ? R.color.text : R.color.text_dim));
         } catch (Throwable ignored) {
         }
     }
 
     @Override
-    public void onDestroyView() {
-        b = null;
-        super.onDestroyView();
+    protected void onResume() {
+        super.onResume();
+        renderData();
     }
 }

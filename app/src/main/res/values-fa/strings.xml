@@ -5,7 +5,6 @@
     <string name="offline_badge">آفلاین</string>
     <string name="lang_fa">فارسی</string>
     <string name="lang_en">English</string>
-    <string name="hint_input">متن را بنویسید یا بچسبانید…</string>
     <string name="action_translate">ترجمه کن</string>
     <string name="action_translating">در حال ترجمه…</string>
     <string name="action_copy">کپی</string>
@@ -22,7 +21,6 @@
     <string name="action_cancel">انصراف</string>
     <string name="action_ok">باشه</string>
     <string name="empty_result_title">ترجمه اینجا می‌نشیند</string>
-    <string name="empty_result_sub">بدون شبکه، بدون انتظار — داده از اول داخل برنامه است.</string>
     <string name="err_generic">مشکلی پیش آمد. دوباره تلاش کنید.</string>
     <string name="err_empty">اول چیزی بنویسید.</string>
     <string name="err_not_found">هیچ‌کدام از این واژه‌ها در واژه‌نامهٔ آفلاین نبود.</string>
@@ -88,4 +86,11 @@
     <string name="cd_back">بازگشت</string>
     <string name="cd_settings">تنظیمات</string>
     <string name="cd_close">بستن</string>
+    <string name="engine_neural">مدل عصبی</string>
+    <string name="engine_ready">آماده · آفلاین</string>
+    <string name="engine_loading">در حال آماده‌سازی…</string>
+    <string name="mode_nmt">عصبی</string>
+    <string name="mode_preparing">آماده‌سازی</string>
+    <string name="empty_result_sub">بنویسید تا همان لحظه ترجمه شود.</string>
+    <string name="hint_input">متن را بنویسید یا بچسبانید…</string>
 </resources>

@@ -2,9 +2,9 @@
 
 # هم‌زبان · Hamzaban
 
-**مترجم فارسی ⇄ انگلیسی که همه‌چیزش از اول داخل برنامه است.**
+**مترجم هم‌زمان فارسی ⇄ انگلیسی، با موتور عصبی روی دستگاه.**
 
-بدون دانلود · بدون حساب کاربری · بدون شبکه · ۵٫۵ مگابایت
+تایپ کن، همان لحظه ترجمه می‌شود · بدون حساب کاربری · بدون سرور
 
 ساخته‌شده توسط امیرمهدی (AM Studio)
 
@@ -14,28 +14,26 @@
 
 ## فارسی
 
-هم‌زبان یک مترجم دوسویهٔ فارسی ⇄ انگلیسی برای اندروید است. تمام داده — حدود ۱۰۸ هزار مدخل، شامل عبارت‌های کامل و واژه‌نامهٔ دوزبانه — داخل خودِ برنامه بسته‌بندی شده است. اولین اجرا هیچ دانلودی ندارد، برنامه در یک ثانیه باز می‌شود و در حالت هواپیما هم کار می‌کند.
+هم‌زبان یک مترجم دوطرفهٔ فارسی ⇄ انگلیسی است که **هم‌زمان با تایپ** ترجمه می‌کند. دو موتور دارد که با هم کار می‌کنند:
+
+1. **واژه‌نامهٔ داخلی** — حدود ۱۰۸ هزار مدخل که از اول داخل برنامه است؛ از اولین ثانیه کار می‌کند، حتی بدون اینترنت.
+2. **موتور عصبی (NMT)** — مدل ترجمهٔ روی‌دستگاه؛ اولین بار که یک زبان انتخاب می‌شود، مدلش یک‌بار دانلود می‌شود و بعد از آن همه‌چیز آفلاین است.
+
+نتیجه: با باز کردن برنامه و بدون هیچ دانلودی می‌توانی ترجمه بگیری، و به‌محض آماده شدن مدل، جمله‌های واقعی با کیفیت عصبی ترجمه می‌شوند.
 
 ### ویژگی‌ها
 
-- **صفر دانلود**: داده از اول داخل APK است؛ حجم کل برنامه حدود ۵٫۵ مگابایت.
-- **کاملاً آفلاین**: هیچ درخواست شبکه‌ای وجود ندارد — مجوز `INTERNET` هم درخواست نمی‌شود.
-- **دوسویه**: فارسی ← انگلیسی و انگلیسی ← فارسی با یک ضربه.
-- **دو حالت ترجمه** که صادقانه برچسب می‌خورند: «عبارت دقیق» برای تطابق کامل با عبارت‌های موجود، و «واژه‌به‌واژه» برای متن آزاد.
-- **تاریخچه و ذخیره‌ها** روی خود دستگاه (SQLite محلی)، با جست‌وجو، کشیدن برای حذف و نشانک.
-- **خواندن با صدا** (TTS دستگاه)، کپی و اشتراک‌گذاری.
-- **راست‌چین درست**: فونت وزیرمتن، اعداد فارسی، چیدمان منطقی و دوسویه (bidi).
-- **تم روشن/تیره/سیستم**، اندازهٔ متن قابل تنظیم، رابط فارسی و انگلیسی.
-- **طراحی تیره‌محور** با لهجهٔ بنفش، تایپوگرافی سیاه و فضای سفید زیاد.
+- **ترجمهٔ هم‌زمان (real-time)**: با هر تغییر متن، بعد از ۳۲۰ میلی‌ثانیه ترجمه به‌روز می‌شود.
+- **دو موتوره**: واژه‌نامهٔ فوری + مدل عصبی قدرتمند؛ برچسب کنار هر ترجمه می‌گوید از کدام آمده («عصبی» / «عبارت دقیق» / «واژه‌به‌واژه»).
+- **دوسویه** فارسی ← انگلیسی و انگلیسی ← فارسی با یک ضربه.
+- **خواندن با صدا**، کپی و اشتراک‌گذاری.
+- **راست‌چین درست**: فونت وزیرمتن، اعداد فارسی، چیدمان منطقی و دوسویه.
+- **تم روشن/تیره/سیستم** و اندازهٔ متن قابل تنظیم در صفحهٔ تنظیمات.
+- **طراحی بر اساس GitHub و Reddit**: توکن‌های Primer، حاشیهٔ ۱ پیکسلی، آیکون‌های Octicons، چیدمان فشرده و ردیفی.
 
-### صادقانه دربارهٔ موتور
+### حریم خصوصی
 
-این برنامه یک موتور ترجمهٔ عصبی (NMT) نیست. موتورهای NMT نیاز به دانلود مدل چند ده مگابایتی دارند و دقیقاً همان چیزی هستند که شما نخواستید. به‌جای آن، دادهٔ موازی واقعی (پیکرهٔ OPUS فارسی–انگلیسی، شامل جمله‌های Tatoeba و دیگر پیکره‌های آزاد) فشرده و بسته‌بندی شده است:
-
-1. اگر متن ورودی دقیقاً با یکی از عبارت‌های پیکره یکی باشد، ترجمهٔ انسانیِ همان عبارت برگردانده می‌شود («عبارت دقیق»).
-2. در غیر این صورت، واژه‌به‌واژه با واژه‌نامهٔ دوزبانه ترجمه می‌شود، با نرمال‌سازی فارسی (ی/ک عربی، اعراب، نیم‌فاصله، ارقام) و یک قاعدهٔ ساده برای فعل ربطی («است/هستم/...» → is/am/are).
-
-نتیجه برای واژه‌ها و جمله‌های کوتاه و رایج خوب است و برای جمله‌های بلند و آزاد تقریبی. برنامه هم این را پنهان نمی‌کند و حالت هر ترجمه را نشان می‌دهد.
+هیچ داده‌ای جمع‌آوری نمی‌شود و هیچ سروری در کار نیست. مجوزهای `INTERNET` و `ACCESS_NETWORK_STATE` فقط برای دانلود یک‌بارهٔ مدل عصبی هستند؛ متن شما جایی فرستاده نمی‌شود و ترجمه کاملاً روی دستگاه انجام می‌شود.
 
 ### نصب
 
@@ -43,6 +41,7 @@
 
 - حداقل اندروید **۸.۰ (API 26)**
 - معماری‌ها: `arm64-v8a` و `armeabi-v7a`
+- حجم: حدود ۳۴ مگابایت (کتابخانهٔ موتور عصبی روی‌دستگاه)
 
 ### ساخت از سورس
 
@@ -54,33 +53,27 @@ chmod +x gradlew
 ./gradlew :app:assembleRelease
 ```
 
-دادهٔ واژه‌نامه از قبل در `app/src/main/assets/lexicon.binz` هست؛ برای ساخت APK به هیچ دانلودی نیاز نیست.
-
-برای امضای نسخهٔ release یک فایل `keystore.properties` در ریشهٔ پروژه بسازید (در `.gitignore` است) با کلیدهای `storeFile`، `storePassword`، `keyAlias` و `keyPassword`. بدون آن، APK بدون امضا ساخته می‌شود.
+برای امضای نسخهٔ release یک فایل `keystore.properties` در ریشهٔ پروژه بسازید (در `.gitignore` است) با کلیدهای `storeFile`، `storePassword`، `keyAlias` و `keyPassword`.
 
 ### معماری
 
 - **Java 17** + **AndroidX** (AppCompat، بدون Compose و بدون Material Components)
 - **XML layout + ViewBinding**، MVVM سبک با `ViewModel` + `LiveData`
-- **SQLite** خام برای تاریخچه، بدون annotation processor
-- واژه‌نامه در یک فایل باینری مرتب‌شده بر اساس هش FNV-1a، با ایندکس تُنُک؛ در زمان اجرا با `MappedByteBuffer` خوانده می‌شود (بدون بارگذاری کامل در حافظه)
-- طراحی و آیکون‌ها از GitHub الگو گرفته شده‌اند: توکن‌های Primer و Octicons
+- `core/NmtEngine` — موتور عصبی ML Kit با کش و دانلود تنبل مدل
+- `core/Lexicon` — واژه‌نامهٔ باینری مرتب‌شده بر اساس هش FNV-1a، خوانده‌شده با `MappedByteBuffer` و ایندکس تُنُک
+- `core/Translator` — نرمال‌سازی فارسی (ی/ک عربی، اعراب، نیم‌فاصله، ارقام) و تطابق دقیق/واژه‌به‌واژه
+- آیکون‌ها: **Octicons** گیت‌هاب، تبدیل‌شده به وکتور اندروید
 
 ```
 app/src/main/java/studio/am/hamzaban/
 ├── App.java · BaseActivity.java · SplashActivity.java
-├── OnboardingActivity.java · MainActivity.java
-├── core/       Lexicon (خواندن mmap) · Translator (نرمال‌سازی + موتور)
-├── data/       Prefs · DbHelper · HistoryRepo · Entry
-├── ui/         TranslateFragment · EntryListFragment · SettingsFragment
-├── ui/widget/  IconView · RingView · EntryAdapter
-├── util/       Fa (اعداد فارسی) · LocaleHelper · Tts · Ui · TimeFmt
-└── vm/         TranslateViewModel · HistoryViewModel
+├── OnboardingActivity.java · MainActivity.java · SettingsActivity.java
+├── core/       NmtEngine · Lexicon · Translator
+├── data/       Prefs
+├── ui/widget/  IconView · Icons
+├── util/       Fa · LocaleHelper · Tts · Ui
+└── vm/         TranslateViewModel
 ```
-
-### حریم خصوصی
-
-هیچ مجوزی جز هیچ. برنامه `INTERNET` هم درخواست نمی‌کند. متن، تاریخچه و تنظیمات هرگز از دستگاه خارج نمی‌شوند.
 
 ### مجوز
 
@@ -90,31 +83,28 @@ MIT — فایل [LICENSE](LICENSE).
 
 ## English
 
-Hamzaban is a bidirectional Persian ⇄ English translator for Android. The whole dataset — roughly 108k entries of parallel phrases and a bilingual lexicon — ships inside the app. First launch downloads nothing, the app opens in about a second, and it works in airplane mode.
+Hamzaban is a bidirectional Persian ⇄ English translator that translates **as you type**. It runs two engines together:
+
+1. **Bundled lexicon** — ~108k entries shipped inside the app, available from the first second with no network at all.
+2. **Neural engine (NMT)** — an on-device translation model. The first time a language is used its model is downloaded once; after that everything is offline.
 
 ### Features
 
-- **Zero downloads**: the data is in the APK; the whole app is about 5.5 MB.
-- **Truly offline**: no network calls at all — the `INTERNET` permission isn't even requested.
+- **Real-time translation**: every change is translated after a 320 ms debounce.
+- **Two engines**: instant lexicon plus a real neural model, with a label on each result telling you which one produced it.
 - **Bidirectional** Persian → English and English → Persian in one tap.
-- **Two honestly labelled modes**: "Exact phrase" for a full match in the corpus, "Word by word" for free text.
-- **History and bookmarks** stored locally in SQLite, with search and swipe-to-delete.
 - **Text-to-speech**, copy and share.
 - **Proper RTL**: Vazirmatn, Persian digits, logical and bidi-correct layout.
-- **Light / dark / system theme**, adjustable text size, Persian and English UI.
+- **Light / dark / system theme** and adjustable text size on a dedicated settings screen.
+- **GitHub/Reddit-inspired UI**: Primer tokens, 1px borders, Octicons, compact row-based layout.
 
-### Honest note on the engine
+### Privacy
 
-This is not a neural machine translation engine. NMT needs a model download of tens of megabytes — exactly what you asked to avoid. Instead the real parallel data (the OPUS Persian–English corpus, including Tatoeba and other open corpora) is compressed and bundled:
-
-1. An exact match in the corpus returns the human translation ("Exact phrase").
-2. Otherwise the text is translated word by word from the bilingual lexicon, with Persian normalisation (Arabic yeh/kaf, diacritics, ZWNJ, digits) and a simple copula rule.
-
-That is strong for words and short common sentences and approximate for long free-form text. The app shows which mode produced each result rather than pretending otherwise.
+Nothing is collected and there is no backend. `INTERNET` and `ACCESS_NETWORK_STATE` are used only for the one-time model download; your text never leaves the device and translation runs locally.
 
 ### Install
 
-Download the APK from [Releases](https://github.com/amirmahdipa77-tech/hamzaban/releases). Android 8.0 (API 26)+, `arm64-v8a` and `armeabi-v7a`.
+Download the APK from [Releases](https://github.com/amirmahdipa77-tech/hamzaban/releases). Android 8.0 (API 26)+, `arm64-v8a` and `armeabi-v7a`, ~34 MB.
 
 ### Build from source
 
@@ -126,15 +116,11 @@ chmod +x gradlew
 ./gradlew :app:assembleRelease
 ```
 
-The lexicon is already committed at `app/src/main/assets/lexicon.binz`, so the build needs no downloads. For a signed release add a git-ignored `keystore.properties` (`storeFile`, `storePassword`, `keyAlias`, `keyPassword`); without it the APK is unsigned.
+For a signed release add a git-ignored `keystore.properties` (`storeFile`, `storePassword`, `keyAlias`, `keyPassword`).
 
 ### Architecture
 
-Java 17 + AndroidX (AppCompat, no Compose, no Material Components), XML layouts with ViewBinding, lightweight MVVM, plain SQLite, and a hash-sorted binary lexicon read through a `MappedByteBuffer` with a sparse index — no full load into memory. Icons are GitHub's Octicons, converted to vector drawables, and the whole visual system follows GitHub's Primer design tokens.
-
-### Privacy
-
-No permissions at all — the app doesn't even request `INTERNET`. Text, history and settings never leave the device.
+Java 17 + AndroidX (AppCompat, no Compose, no Material Components), XML layouts with ViewBinding, lightweight MVVM. `NmtEngine` wraps ML Kit's on-device translation with a cached, lazily downloaded model; `Lexicon` is a hash-sorted binary read through a `MappedByteBuffer` with a sparse index; `Translator` handles Persian normalisation and exact/word-by-word matching. Icons are GitHub's Octicons as vector drawables.
 
 ### License
 

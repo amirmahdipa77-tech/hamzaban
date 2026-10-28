@@ -7,166 +7,238 @@
     android:orientation="vertical"
     android:background="@color/bg">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <LinearLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="6dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/vazirmatn_bold"
+            android:text="@string/app_name"
+            android:textSize="16sp"
+            android:textColor="@color/text" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/langChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/langFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/text_dim" />
+
+            <studio.am.hamzaban.ui.widget.IconView
+                android:id="@+id/btnSwap"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:tint="@color/accent"
+                app:glyph="swap_horiz" />
+
+            <TextView
+                android:id="@+id/langTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/text_dim" />
+        </LinearLayout>
+
+        <studio.am.hamzaban.ui.widget.IconView
+            android:id="@+id/btnSettings"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="4dp"
+            android:padding="8dp"
+            android:background="@drawable/bg_round_ripple"
+            android:tint="@color/text_dim"
+            android:contentDescription="@string/cd_settings"
+            android:clickable="true"
+            android:focusable="true"
+            app:glyph="settings" />
+    </LinearLayout>
 
     <View
-        android:id="@+id/navDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/stroke" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/srcInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="96dp"
+        android:maxHeight="220dp"
+        android:background="@null"
+        android:gravity="top|start"
+        android:hint="@string/hint_input"
+        android:textColorHint="@color/text_faint"
+        android:textSize="15sp"
+        android:textColor="@color/text"
+        android:inputType="textMultiLine|textCapSentences"
+        android:maxLength="3000"
+        android:importantForAutofill="no"
+        android:padding="14dp"
+        android:lineSpacingExtra="3dp" />
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/stroke" />
 
     <FrameLayout
-        android:id="@+id/navBarWrap"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bg">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <FrameLayout
-            android:id="@+id/navBar"
+        <ScrollView
+            android:id="@+id/resultScroll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
-                android:id="@+id/navIndicator"
-                android:layout_width="72dp"
-                android:layout_height="0dp"
-                android:layout_gravity="top|left"
-                android:background="@drawable/bg_nav_indicator" />
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
 
             <LinearLayout
-                android:id="@+id/navItems"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="14dp">
 
                 <LinearLayout
-                    android:id="@+id/navItemTranslate"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <studio.am.hamzaban.ui.widget.IconView
-                        android:id="@+id/navIconTranslate"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:tint="@color/text_dim"
-                        app:glyph="translate" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
                     <TextView
-                        android:id="@+id/navLabelTranslate"
+                        android:id="@+id/modeBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/tab_translate"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_dim"
+                        android:background="@drawable/bg_accent_pill"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/accent"
                         android:maxLines="1" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/navItemHistory"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true">
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
 
                     <studio.am.hamzaban.ui.widget.IconView
-                        android:id="@+id/navIconHistory"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:id="@+id/btnSpeak"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:background="@drawable/bg_round_ripple"
                         android:tint="@color/text_dim"
-                        app:glyph="history" />
-
-                    <TextView
-                        android:id="@+id/navLabelHistory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/tab_history"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_dim"
-                        android:maxLines="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/navItemSaved"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true">
+                        android:contentDescription="@string/cd_speak"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:glyph="volume_up" />
 
                     <studio.am.hamzaban.ui.widget.IconView
-                        android:id="@+id/navIconSaved"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:id="@+id/btnCopy"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:background="@drawable/bg_round_ripple"
                         android:tint="@color/text_dim"
-                        app:glyph="bookmark" />
-
-                    <TextView
-                        android:id="@+id/navLabelSaved"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/tab_saved"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_dim"
-                        android:maxLines="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/navItemSettings"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true">
+                        android:contentDescription="@string/cd_copy"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:glyph="content_copy" />
 
                     <studio.am.hamzaban.ui.widget.IconView
-                        android:id="@+id/navIconSettings"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:id="@+id/btnShare"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:background="@drawable/bg_round_ripple"
                         android:tint="@color/text_dim"
-                        app:glyph="settings" />
-
-                    <TextView
-                        android:id="@+id/navLabelSettings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/tab_settings"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_dim"
-                        android:maxLines="1" />
+                        android:contentDescription="@string/cd_share"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:glyph="share" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:textIsSelectable="true"
+                    android:lineSpacingExtra="4dp" />
             </LinearLayout>
-        </FrameLayout>
-    </FrameLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp">
+
+            <studio.am.hamzaban.ui.widget.IconView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:tint="@color/text_faint"
+                android:importantForAccessibility="no"
+                app:glyph="translate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/empty_result_title"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/empty_result_sub"
+                android:textSize="12sp"
+                android:textColor="@color/text_faint"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp" />
+        </LinearLayout>
+</FrameLayout>
 </LinearLayout>
