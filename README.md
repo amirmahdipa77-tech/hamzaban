@@ -4,7 +4,7 @@
 
 **مترجم فارسی ⇄ انگلیسی که همه‌چیزش از اول داخل برنامه است.**
 
-بدون دانلود · بدون حساب کاربری · بدون شبکه · ۵٫۸ مگابایت
+بدون دانلود · بدون حساب کاربری · بدون شبکه · ۵٫۵ مگابایت
 
 ساخته‌شده توسط امیرمهدی (AM Studio)
 
@@ -14,11 +14,11 @@
 
 ## فارسی
 
-هم‌زبان یک مترجم دوسویهٔ فارسی ⇄ انگلیسی برای اندروید است. تمام داده — حدود ۱۷۰ هزار مدخل، شامل عبارت‌های کامل و واژه‌نامهٔ دوزبانه — داخل خودِ برنامه بسته‌بندی شده است. اولین اجرا هیچ دانلودی ندارد، برنامه در یک ثانیه باز می‌شود و در حالت هواپیما هم کار می‌کند.
+هم‌زبان یک مترجم دوسویهٔ فارسی ⇄ انگلیسی برای اندروید است. تمام داده — حدود ۱۰۸ هزار مدخل، شامل عبارت‌های کامل و واژه‌نامهٔ دوزبانه — داخل خودِ برنامه بسته‌بندی شده است. اولین اجرا هیچ دانلودی ندارد، برنامه در یک ثانیه باز می‌شود و در حالت هواپیما هم کار می‌کند.
 
 ### ویژگی‌ها
 
-- **صفر دانلود**: داده از اول داخل APK است؛ حجم کل برنامه حدود ۵٫۸ مگابایت.
+- **صفر دانلود**: داده از اول داخل APK است؛ حجم کل برنامه حدود ۵٫۵ مگابایت.
 - **کاملاً آفلاین**: هیچ درخواست شبکه‌ای وجود ندارد — مجوز `INTERNET` هم درخواست نمی‌شود.
 - **دوسویه**: فارسی ← انگلیسی و انگلیسی ← فارسی با یک ضربه.
 - **دو حالت ترجمه** که صادقانه برچسب می‌خورند: «عبارت دقیق» برای تطابق کامل با عبارت‌های موجود، و «واژه‌به‌واژه» برای متن آزاد.
@@ -90,11 +90,11 @@ MIT — فایل [LICENSE](LICENSE).
 
 ## English
 
-Hamzaban is a bidirectional Persian ⇄ English translator for Android. The whole dataset — roughly 170k entries of parallel phrases and a bilingual lexicon — ships inside the app. First launch downloads nothing, the app opens in about a second, and it works in airplane mode.
+Hamzaban is a bidirectional Persian ⇄ English translator for Android. The whole dataset — roughly 108k entries of parallel phrases and a bilingual lexicon — ships inside the app. First launch downloads nothing, the app opens in about a second, and it works in airplane mode.
 
 ### Features
 
-- **Zero downloads**: the data is in the APK; the whole app is about 5.8 MB.
+- **Zero downloads**: the data is in the APK; the whole app is about 5.5 MB.
 - **Truly offline**: no network calls at all — the `INTERNET` permission isn't even requested.
 - **Bidirectional** Persian → English and English → Persian in one tap.
 - **Two honestly labelled modes**: "Exact phrase" for a full match in the corpus, "Word by word" for free text.
