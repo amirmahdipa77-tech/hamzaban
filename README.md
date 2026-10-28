@@ -2,9 +2,11 @@
 
 # هم‌زبان · Hamzaban
 
-**مترجم آفلاین، بدون اینترنت، بدون حساب کاربری.**
+**مترجم فارسی ⇄ انگلیسی که همه‌چیزش از اول داخل برنامه است.**
 
-۵۹ زبان · موتور ترجمهٔ عصبی روی دستگاه · ساخته‌شده توسط امیرمهدی (AM Studio)
+بدون دانلود · بدون حساب کاربری · بدون شبکه · ۵٫۸ مگابایت
+
+ساخته‌شده توسط امیرمهدی (AM Studio)
 
 </div>
 
@@ -12,29 +14,34 @@
 
 ## فارسی
 
-هم‌زبان یک مترجم کاملاً آفلاین برای اندروید است. بعد از یک دانلود یک‌بارهٔ مدل زبانی، ترجمه کاملاً روی گوشی شما انجام می‌شود: هیچ متنی به هیچ سروری فرستاده نمی‌شود، هیچ حساب کاربری لازم نیست و هیچ داده‌ای جمع‌آوری نمی‌شود.
+هم‌زبان یک مترجم دوسویهٔ فارسی ⇄ انگلیسی برای اندروید است. تمام داده — حدود ۱۷۰ هزار مدخل، شامل عبارت‌های کامل و واژه‌نامهٔ دوزبانه — داخل خودِ برنامه بسته‌بندی شده است. اولین اجرا هیچ دانلودی ندارد، برنامه در یک ثانیه باز می‌شود و در حالت هواپیما هم کار می‌کند.
 
 ### ویژگی‌ها
 
-- **۵۹ زبان** با موتور ترجمهٔ عصبی (NMT) که روی دستگاه اجرا می‌شود.
-- **دانلود یک‌باره، استفادهٔ همیشگی**: در اولین اجرا فقط زبان‌های انتخابی شما دانلود می‌شوند؛ بقیهٔ زبان‌ها هر وقت خواستید اضافه یا پاک می‌شوند.
-- **کاملاً آفلاین** بعد از دانلود مدل.
-- **تاریخچه و ذخیره‌ها** روی همان دستگاه (SQLite محلی)، با جست‌وجو، کشیدن برای حذف و نشانک.
-- **خواندن با صدا** (TTS دستگاه)، کپی، و اشتراک‌گذاری ترجمه.
-- **جابه‌جایی سریع زبان‌ها** با یک ضربه؛ متن ترجمه‌شده به‌طور خودکار به سمت مقابل منتقل می‌شود.
-- **راست‌چین و فارسی‌محور** با فونت وزیرمتن، اعداد فارسی و چیدمان منطقی (RTL) درست.
-- **تم روشن/تیره/سیستم**، اندازهٔ متن قابل تنظیم، و رابط کاربری فارسی و انگلیسی.
-- **سبک و بی‌سر‌و‌صدا**: بدون تبلیغ، بدون ردیابی، بدون صفحهٔ اضافه.
+- **صفر دانلود**: داده از اول داخل APK است؛ حجم کل برنامه حدود ۵٫۸ مگابایت.
+- **کاملاً آفلاین**: هیچ درخواست شبکه‌ای وجود ندارد — مجوز `INTERNET` هم درخواست نمی‌شود.
+- **دوسویه**: فارسی ← انگلیسی و انگلیسی ← فارسی با یک ضربه.
+- **دو حالت ترجمه** که صادقانه برچسب می‌خورند: «عبارت دقیق» برای تطابق کامل با عبارت‌های موجود، و «واژه‌به‌واژه» برای متن آزاد.
+- **تاریخچه و ذخیره‌ها** روی خود دستگاه (SQLite محلی)، با جست‌وجو، کشیدن برای حذف و نشانک.
+- **خواندن با صدا** (TTS دستگاه)، کپی و اشتراک‌گذاری.
+- **راست‌چین درست**: فونت وزیرمتن، اعداد فارسی، چیدمان منطقی و دوسویه (bidi).
+- **تم روشن/تیره/سیستم**، اندازهٔ متن قابل تنظیم، رابط فارسی و انگلیسی.
+- **طراحی تیره‌محور** با لهجهٔ بنفش، تایپوگرافی سیاه و فضای سفید زیاد.
 
-### حریم خصوصی
+### صادقانه دربارهٔ موتور
 
-هم‌زبان هیچ داده‌ای جمع‌آوری نمی‌کند. تنها دسترسی‌های اعلام‌شده `INTERNET` و `ACCESS_NETWORK_STATE` هستند و فقط برای دانلود یک‌بارهٔ مدل‌های زبانی استفاده می‌شوند. متن شما، تاریخچه و تنظیمات هرگز از دستگاه خارج نمی‌شوند.
+این برنامه یک موتور ترجمهٔ عصبی (NMT) نیست. موتورهای NMT نیاز به دانلود مدل چند ده مگابایتی دارند و دقیقاً همان چیزی هستند که شما نخواستید. به‌جای آن، دادهٔ موازی واقعی (پیکرهٔ OPUS فارسی–انگلیسی، شامل جمله‌های Tatoeba و دیگر پیکره‌های آزاد) فشرده و بسته‌بندی شده است:
+
+1. اگر متن ورودی دقیقاً با یکی از عبارت‌های پیکره یکی باشد، ترجمهٔ انسانیِ همان عبارت برگردانده می‌شود («عبارت دقیق»).
+2. در غیر این صورت، واژه‌به‌واژه با واژه‌نامهٔ دوزبانه ترجمه می‌شود، با نرمال‌سازی فارسی (ی/ک عربی، اعراب، نیم‌فاصله، ارقام) و یک قاعدهٔ ساده برای فعل ربطی («است/هستم/...» → is/am/are).
+
+نتیجه برای واژه‌ها و جمله‌های کوتاه و رایج خوب است و برای جمله‌های بلند و آزاد تقریبی. برنامه هم این را پنهان نمی‌کند و حالت هر ترجمه را نشان می‌دهد.
 
 ### نصب
 
-آخرین نسخه را از بخش [Releases](https://github.com/amirmahdipa77-tech/hamzaban/releases) دانلود و نصب کنید.
+از بخش [Releases](https://github.com/amirmahdipa77-tech/hamzaban/releases) فایل APK را دانلود کنید.
 
-- حداقل اندروید: **۸.۰ (API 26)**
+- حداقل اندروید **۸.۰ (API 26)**
 - معماری‌ها: `arm64-v8a` و `armeabi-v7a`
 
 ### ساخت از سورس
@@ -42,85 +49,72 @@
 ```bash
 git clone https://github.com/amirmahdipa77-tech/hamzaban.git
 cd hamzaban
-```
-
-یک فایل `local.properties` در ریشهٔ پروژه بسازید:
-
-```properties
-sdk.dir=/path/to/Android/Sdk
-```
-
-و سپس:
-
-```bash
+echo "sdk.dir=/path/to/Android/Sdk" > local.properties
 chmod +x gradlew
 ./gradlew :app:assembleRelease
 ```
 
-برای امضای نسخهٔ release یک فایل `keystore.properties` در ریشهٔ پروژه بسازید (این فایل در `.gitignore` است):
+دادهٔ واژه‌نامه از قبل در `app/src/main/assets/lexicon.binz` هست؛ برای ساخت APK به هیچ دانلودی نیاز نیست.
 
-```properties
-storeFile=../keys/release.jks
-storePassword=******
-keyAlias=******
-keyPassword=******
-```
-
-اگر این فایل نباشد، APK بدون امضا ساخته می‌شود.
+برای امضای نسخهٔ release یک فایل `keystore.properties` در ریشهٔ پروژه بسازید (در `.gitignore` است) با کلیدهای `storeFile`، `storePassword`، `keyAlias` و `keyPassword`. بدون آن، APK بدون امضا ساخته می‌شود.
 
 ### معماری
 
-- **Java 17** + **AndroidX** (AppCompat / Material Components، بدون Jetpack Compose)
-- **XML layout + ViewBinding**
-- **MVVM** سبک با `ViewModel` + `LiveData`
-- **SQLite** خام برای تاریخچه (بدون annotation processor)
-- موتور ترجمه: **ML Kit on-device Translation** (مدل‌ها روی دستگاه اجرا می‌شوند)
-- بدون تبلیغ، بدون SDK تحلیلی، بدون شبکه در زمان ترجمه
+- **Java 17** + **AndroidX** (AppCompat، بدون Compose و بدون Material Components)
+- **XML layout + ViewBinding**، MVVM سبک با `ViewModel` + `LiveData`
+- **SQLite** خام برای تاریخچه، بدون annotation processor
+- واژه‌نامه در یک فایل باینری مرتب‌شده بر اساس هش FNV-1a، با ایندکس تُنُک؛ در زمان اجرا با `MappedByteBuffer` خوانده می‌شود (بدون بارگذاری کامل در حافظه)
+- آیکون‌ها: Material Symbols Rounded، زیرمجموعه‌شده به یک فونت ~۹ کیلوبایتی
 
 ```
 app/src/main/java/studio/am/hamzaban/
-├── App.java, BaseActivity.java, SplashActivity.java
-├── OnboardingActivity.java, SetupActivity.java, MainActivity.java
-├── core/       TranslatorEngine — کش موتورهای ترجمه
-├── data/       Prefs · Langs · DbHelper · HistoryRepo
-├── ui/         TranslateFragment · EntryListFragment · SettingsFragment · LanguagePickerSheet
-├── ui/widget/  IconView (Material Symbols Rounded) · RingView · EntryAdapter
-├── util/       Fa (اعداد فارسی) · LocaleHelper · Tts · Ui
+├── App.java · BaseActivity.java · SplashActivity.java
+├── OnboardingActivity.java · MainActivity.java
+├── core/       Lexicon (خواندن mmap) · Translator (نرمال‌سازی + موتور)
+├── data/       Prefs · DbHelper · HistoryRepo · Entry
+├── ui/         TranslateFragment · EntryListFragment · SettingsFragment
+├── ui/widget/  IconView · RingView · EntryAdapter
+├── util/       Fa (اعداد فارسی) · LocaleHelper · Tts · Ui · TimeFmt
 └── vm/         TranslateViewModel · HistoryViewModel
 ```
 
+### حریم خصوصی
+
+هیچ مجوزی جز هیچ. برنامه `INTERNET` هم درخواست نمی‌کند. متن، تاریخچه و تنظیمات هرگز از دستگاه خارج نمی‌شوند.
+
 ### مجوز
 
-MIT — فایل [LICENSE](LICENSE) را ببینید.
+MIT — فایل [LICENSE](LICENSE).
 
 ---
 
 ## English
 
-Hamzaban (هم‌زبان, "same language") is a fully offline translator for Android. After a one-time language model download, translation runs entirely on your phone — no text ever leaves the device, no account, no tracking.
+Hamzaban is a bidirectional Persian ⇄ English translator for Android. The whole dataset — roughly 170k entries of parallel phrases and a bilingual lexicon — ships inside the app. First launch downloads nothing, the app opens in about a second, and it works in airplane mode.
 
 ### Features
 
-- **59 languages** powered by an on-device neural translation engine.
-- **Download once, translate forever**: the first run fetches only the languages you pick; add or remove more whenever you like.
-- **Fully offline** once a model is downloaded.
-- **History and saved phrases** stored locally in SQLite, with search, swipe-to-delete and bookmarks.
+- **Zero downloads**: the data is in the APK; the whole app is about 5.8 MB.
+- **Truly offline**: no network calls at all — the `INTERNET` permission isn't even requested.
+- **Bidirectional** Persian → English and English → Persian in one tap.
+- **Two honestly labelled modes**: "Exact phrase" for a full match in the corpus, "Word by word" for free text.
+- **History and bookmarks** stored locally in SQLite, with search and swipe-to-delete.
 - **Text-to-speech**, copy and share.
-- **One-tap language swap** that carries the translation across.
-- **Right-to-left done properly**: Vazirmatn typeface, Persian digits, logical layout.
+- **Proper RTL**: Vazirmatn, Persian digits, logical and bidi-correct layout.
 - **Light / dark / system theme**, adjustable text size, Persian and English UI.
-- **Quiet by design**: no ads, no analytics, no clutter.
 
-### Privacy
+### Honest note on the engine
 
-Nothing is collected. The only declared permissions are `INTERNET` and `ACCESS_NETWORK_STATE`, used solely for the one-time model download. Your text, history and settings never leave the device.
+This is not a neural machine translation engine. NMT needs a model download of tens of megabytes — exactly what you asked to avoid. Instead the real parallel data (the OPUS Persian–English corpus, including Tatoeba and other open corpora) is compressed and bundled:
+
+1. An exact match in the corpus returns the human translation ("Exact phrase").
+2. Otherwise the text is translated word by word from the bilingual lexicon, with Persian normalisation (Arabic yeh/kaf, diacritics, ZWNJ, digits) and a simple copula rule.
+
+That is strong for words and short common sentences and approximate for long free-form text. The app shows which mode produced each result rather than pretending otherwise.
 
 ### Install
 
-Download the latest APK from [Releases](https://github.com/amirmahdipa77-tech/hamzaban/releases).
-
-- Minimum Android **8.0 (API 26)**
-- ABIs: `arm64-v8a`, `armeabi-v7a`
+Download the APK from [Releases](https://github.com/amirmahdipa77-tech/hamzaban/releases). Android 8.0 (API 26)+, `arm64-v8a` and `armeabi-v7a`.
 
 ### Build from source
 
@@ -132,11 +126,15 @@ chmod +x gradlew
 ./gradlew :app:assembleRelease
 ```
 
-For a signed release, add a `keystore.properties` file at the project root (git-ignored) with `storeFile`, `storePassword`, `keyAlias` and `keyPassword`. Without it the build produces an unsigned APK.
+The lexicon is already committed at `app/src/main/assets/lexicon.binz`, so the build needs no downloads. For a signed release add a git-ignored `keystore.properties` (`storeFile`, `storePassword`, `keyAlias`, `keyPassword`); without it the APK is unsigned.
 
 ### Architecture
 
-Java 17 + AndroidX (AppCompat / Material Components — no Compose), XML layouts with ViewBinding, lightweight MVVM (`ViewModel` + `LiveData`), plain SQLite, and ML Kit on-device Translation for the engine. No ads, no analytics, no network at translation time.
+Java 17 + AndroidX (AppCompat, no Compose, no Material Components), XML layouts with ViewBinding, lightweight MVVM, plain SQLite, and a hash-sorted binary lexicon read through a `MappedByteBuffer` with a sparse index — no full load into memory. Icons are Material Symbols Rounded, subset into a ~9 KB font.
+
+### Privacy
+
+No permissions at all — the app doesn't even request `INTERNET`. Text, history and settings never leave the device.
 
 ### License
 
