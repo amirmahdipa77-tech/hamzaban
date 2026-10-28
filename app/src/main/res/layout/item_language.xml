@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_row_ripple"
+    android:paddingStart="14dp"
+    android:paddingEnd="14dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="34dp"
+        android:gravity="center"
+        android:background="@drawable/bg_chip"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_dim" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/nativeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_faint"
+            android:maxLines="1"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <studio.am.hamzaban.ui.widget.IconView
+        android:id="@+id/status"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:textSize="18sp"
+        android:textColor="@color/text_faint"
+        android:importantForAccessibility="no" />
+</LinearLayout>

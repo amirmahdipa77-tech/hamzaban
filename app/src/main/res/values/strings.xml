@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hamzaban</string>
+    <string name="tagline">59 languages, no internet needed</string>
+    <string name="offline_badge">Offline</string>
+
+    <string name="label_from">From</string>
+    <string name="label_to">To</string>
+    <string name="hint_input">Type or paste text…</string>
+    <string name="action_translate">Translate</string>
+    <string name="action_translating">Translating…</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_copied">Copied</string>
+    <string name="action_speak">Listen</string>
+    <string name="action_share">Share</string>
+    <string name="action_save">Save</string>
+    <string name="action_saved">Saved</string>
+    <string name="action_removed">Removed</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_retry">Try again</string>
+    <string name="action_download">Download</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+
+    <string name="empty_result_title">Translation appears here</string>
+    <string name="empty_result_sub">Everything runs on your device.</string>
+
+    <string name="err_generic">Something went wrong. Please try again.</string>
+    <string name="err_network">This language needs a one-time download. Connect to the internet and try again.</string>
+    <string name="err_empty">Write something first.</string>
+    <string name="model_missing">The %1$s model is not downloaded yet.</string>
+    <string name="tts_unavailable">No voice is installed for this language.</string>
+
+    <string name="tab_translate">Translate</string>
+    <string name="tab_history">History</string>
+    <string name="tab_saved">Saved</string>
+    <string name="tab_settings">Settings</string>
+
+    <string name="history_title">History</string>
+    <string name="history_empty_title">No translations yet</string>
+    <string name="history_empty_sub">Your translations stay on this device.</string>
+    <string name="history_clear">Clear all</string>
+    <string name="history_clear_confirm">Delete every translation?</string>
+
+    <string name="saved_title">Saved</string>
+    <string name="saved_empty_title">Nothing saved yet</string>
+    <string name="saved_empty_sub">Tap the bookmark on a translation to keep it here.</string>
+
+    <string name="search_hint">Search</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="set_appearance">Appearance</string>
+    <string name="set_theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="set_language">App language</string>
+    <string name="set_font">Text size</string>
+    <string name="font_small">Small</string>
+    <string name="font_normal">Default</string>
+    <string name="font_large">Large</string>
+    <string name="set_models">Offline models</string>
+    <string name="models_desc">Downloaded language models. Remove any you no longer need to free up space.</string>
+    <string name="models_empty">No models downloaded yet.</string>
+    <string name="models_add">Add a language</string>
+    <string name="set_about">About</string>
+    <string name="about_desc">An offline translator that never sends your text anywhere.</string>
+    <string name="about_made">Made by Amirmahdi</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_source">Open source on GitHub</string>
+    <string name="about_license">MIT License</string>
+
+    <string name="onb_title">Translate\nwithout internet.</string>
+    <string name="onb_sub">59 languages, fully on your phone. No account, no tracking, no server.</string>
+    <string name="onb_f1_t">Runs offline</string>
+    <string name="onb_f1_s">Download a language once, then translate anywhere.</string>
+    <string name="onb_f2_t">Private by design</string>
+    <string name="onb_f2_s">Your text never leaves the device.</string>
+    <string name="onb_f3_t">Fast and quiet</string>
+    <string name="onb_f3_s">No ads, no clutter, no noise.</string>
+    <string name="onb_start">Get started</string>
+    <string name="onb_note">Data stays on this device</string>
+
+    <string name="setup_title">Preparing the translator</string>
+    <string name="setup_sub">Language models are downloaded once. After that, everything works offline.</string>
+    <string name="setup_step">Downloading %1$s to %2$s</string>
+    <string name="setup_done_title">Ready</string>
+    <string name="setup_done_sub">Everything is offline from now on.</string>
+    <string name="setup_cta">Start translating</string>
+    <string name="setup_failed">Download failed. Check your connection and try again.</string>
+    <string name="setup_note">No account needed</string>
+    <string name="setup_percent">%1$s%%</string>
+
+    <string name="lang_title_source">Translate from</string>
+    <string name="lang_title_target">Translate to</string>
+    <string name="lang_downloaded">Downloaded</string>
+    <string name="lang_not_downloaded">Not downloaded</string>
+    <string name="search_lang">Search language</string>
+    <string name="lang_downloading">Downloading %1$s…</string>
+
+    <string name="time_now">just now</string>
+    <string name="time_min">%1$s min ago</string>
+    <string name="time_hour">%1$s h ago</string>
+    <string name="time_day">%1$s d ago</string>
+
+    <string name="cd_swap">Swap languages</string>
+    <string name="cd_clear">Clear text</string>
+    <string name="cd_copy">Copy translation</string>
+    <string name="cd_speak">Read aloud</string>
+    <string name="cd_share">Share translation</string>
+    <string name="cd_save">Save translation</string>
+    <string name="cd_delete">Delete</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_close">Close</string>
+</resources>

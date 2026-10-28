@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IconView">
+        <attr name="glyph" format="string" />
+        <attr name="filled" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="RingView">
+        <attr name="ringProgress" format="float" />
+        <attr name="ringWidth" format="dimension" />
+        <attr name="ringColor" format="color" />
+        <attr name="ringTrack" format="color" />
+    </declare-styleable>
+</resources>

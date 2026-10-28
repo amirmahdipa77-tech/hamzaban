@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#0B0B0F</color>
+    <color name="surface">#131319</color>
+    <color name="surface_alt">#1C1C25</color>
+    <color name="stroke">#27272F</color>
+    <color name="text">#F5F4F1</color>
+    <color name="text_dim">#9E9CA8</color>
+    <color name="text_faint">#82808C</color>
+    <color name="btn">#F5F4F1</color>
+    <color name="on_btn">#0B0B0F</color>
+    <color name="accent">#FF7A45</color>
+    <color name="accent_text">#FF8F5E</color>
+    <color name="accent_soft">#2B1A11</color>
+    <color name="on_accent">#0B0B0F</color>
+    <color name="brand">#0B0B0F</color>
+    <color name="on_brand">#FFFFFF</color>
+    <color name="ok">#3FCF86</color>
+    <color name="danger">#FF6B6B</color>
+    <color name="ripple">#24FFFFFF</color>
+    <color name="track">#22222B</color>
+</resources>
