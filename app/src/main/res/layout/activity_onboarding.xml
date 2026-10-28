@@ -25,10 +25,9 @@
             android:gravity="center_vertical">
 
             <studio.am.hamzaban.ui.widget.IconView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="@color/accent"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:tint="@color/accent"
                 android:importantForAccessibility="no"
                 app:glyph="swap_horiz" />
 
@@ -53,7 +52,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/vazirmatn_black"
             android:text="@string/onb_title"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:textColor="@color/text"
             android:lineSpacingExtra="2dp" />
 
@@ -163,8 +162,7 @@
             <studio.am.hamzaban.ui.widget.IconView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:textSize="18sp"
-                android:textColor="@color/accent"
+                android:tint="@color/accent"
                 android:importantForAccessibility="no"
                 app:glyph="offline_bolt" />
 
@@ -190,8 +188,7 @@
             <studio.am.hamzaban.ui.widget.IconView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:textSize="18sp"
-                android:textColor="@color/accent"
+                android:tint="@color/accent"
                 android:importantForAccessibility="no"
                 app:glyph="check_circle" />
 
@@ -217,8 +214,7 @@
             <studio.am.hamzaban.ui.widget.IconView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:textSize="18sp"
-                android:textColor="@color/accent"
+                android:tint="@color/accent"
                 android:importantForAccessibility="no"
                 app:glyph="auto_awesome" />
 
@@ -243,9 +239,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:minHeight="56dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:minHeight="44dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             android:background="@drawable/bg_btn"
             android:gravity="center"
             android:text="@string/onb_start"

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/vazirmatn_black"
-            android:textSize="26sp"
+            android:textSize="20sp"
             android:textColor="@color/text" />
 
         <studio.am.hamzaban.ui.widget.IconView
@@ -30,8 +30,7 @@
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:background="@drawable/bg_round_ripple"
-            android:textSize="20sp"
-            android:textColor="@color/text_dim"
+            android:tint="@color/text_dim"
             android:contentDescription="@string/history_clear"
             android:clickable="true"
             android:focusable="true"
@@ -57,10 +56,9 @@
         android:paddingBottom="2dp">
 
         <studio.am.hamzaban.ui.widget.IconView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/text_faint"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:tint="@color/text_faint"
             android:importantForAccessibility="no"
             app:glyph="search" />
 
@@ -70,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
-            android:minHeight="44dp"
+            android:minHeight="36dp"
             android:background="@null"
             android:hint="@string/search_hint"
             android:textColorHint="@color/text_faint"
@@ -113,10 +111,9 @@
 
             <studio.am.hamzaban.ui.widget.IconView
                 android:id="@+id/emptyIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="34sp"
-                android:textColor="@color/text_faint"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:tint="@color/text_faint"
                 app:glyph="history" />
 
             <TextView
