@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import studio.am.hamzaban.R;
-import studio.am.hamzaban.data.Langs;
+import studio.am.hamzaban.core.Translator;
 import studio.am.hamzaban.data.Prefs;
 import studio.am.hamzaban.databinding.FragmentTranslateBinding;
 import studio.am.hamzaban.util.Fa;
@@ -28,9 +28,6 @@ import studio.am.hamzaban.util.Ui;
 import studio.am.hamzaban.vm.TranslateViewModel;
 
 public class TranslateFragment extends Fragment {
-
-    private static final String REQ_SRC = "hz_src";
-    private static final String REQ_TGT = "hz_tgt";
 
     private FragmentTranslateBinding b;
     private TranslateViewModel vm;
@@ -55,21 +52,28 @@ public class TranslateFragment extends Fragment {
         tts = new Tts(requireContext());
 
         Ui.padIme(b.scroll);
-        applyLanguages();
+        renderDirection();
         updateCount();
         wire();
-        observe();
-        listenForPicks();
+        vm.state().observe(getViewLifecycleOwner(), this::render);
     }
 
-    private void applyLanguages() {
-        String src = prefs.src();
-        String tgt = prefs.tgt();
-        b.srcCode.setText(Langs.byCode(src).upperCode());
-        b.srcName.setText(Langs.displayName(requireContext(), src));
-        b.tgtCode.setText(Langs.byCode(tgt).upperCode());
-        b.tgtName.setText(Langs.displayName(requireContext(), tgt));
-        b.resultLang.setText(Langs.displayName(requireContext(), tgt));
+    private boolean toEnglish() {
+        return "fa".equals(prefs.src());
+    }
+
+    private void renderDirection() {
+        boolean toEn = toEnglish();
+        styleChip(b.chipFa, toEn);
+        styleChip(b.chipEn, !toEn);
+    }
+
+    private void styleChip(android.widget.TextView chip, boolean active) {
+        chip.setBackgroundResource(active ? R.drawable.bg_chip_on : R.drawable.bg_row_ripple);
+        chip.setTextColor(ContextCompat.getColor(requireContext(),
+                active ? R.color.accent_text : R.color.text_dim));
+        chip.setTypeface(null, active ? android.graphics.Typeface.BOLD
+                : android.graphics.Typeface.NORMAL);
     }
 
     private String text() {
@@ -79,7 +83,15 @@ public class TranslateFragment extends Fragment {
 
     private void updateCount() {
         int n = text().length();
-        b.charCount.setText(Fa.num(requireContext(), n + " / 5000"));
+        b.charCount.setText(Fa.num(requireContext(), n + " / 2000"));
+    }
+
+    private void setDirection(boolean toEn) {
+        prefs.setSrc(toEn ? "fa" : "en");
+        prefs.setTgt(toEn ? "en" : "fa");
+        renderDirection();
+        hideResult();
+        vm.reset();
     }
 
     private void wire() {
@@ -109,28 +121,27 @@ public class TranslateFragment extends Fragment {
             vm.reset();
         });
 
+        b.chipFa.setOnClickListener(v -> {
+            if (!toEnglish()) setDirection(true);
+        });
+        b.chipEn.setOnClickListener(v -> {
+            if (toEnglish()) setDirection(false);
+        });
+
         b.btnSwap.setOnClickListener(v -> {
-            String src = prefs.src();
-            String tgt = prefs.tgt();
-            prefs.setSrc(tgt);
-            prefs.setTgt(src);
-            swapRotation += 180f;
-            b.btnSwap.animate().rotation(swapRotation)
-                    .setDuration(240)
-                    .setInterpolator(new DecelerateInterpolator())
-                    .start();
+            boolean toEn = toEnglish();
             String out = b.resultText.getText() == null ? "" : b.resultText.getText().toString();
             if (b.resultCard.getVisibility() == View.VISIBLE && !out.isEmpty()) {
                 b.srcInput.setText(out);
                 b.srcInput.setSelection(out.length());
             }
-            applyLanguages();
-            hideResult();
-            vm.reset();
+            swapRotation += 180f;
+            b.btnSwap.animate().rotation(swapRotation)
+                    .setDuration(240)
+                    .setInterpolator(new DecelerateInterpolator())
+                    .start();
+            setDirection(!toEn);
         });
-
-        b.srcPicker.setOnClickListener(v -> openPicker(true));
-        b.tgtPicker.setOnClickListener(v -> openPicker(false));
 
         b.btnCopy.setOnClickListener(v -> copyResult());
         b.btnShare.setOnClickListener(v -> shareResult());
@@ -173,44 +184,6 @@ public class TranslateFragment extends Fragment {
         }
     }
 
-    private void openPicker(boolean source) {
-        try {
-            LanguagePickerSheet sheet = LanguagePickerSheet.newInstance(
-                    getString(source ? R.string.lang_title_source : R.string.lang_title_target),
-                    source ? prefs.src() : prefs.tgt(),
-                    source ? "src" : "tgt",
-                    source ? REQ_SRC : REQ_TGT);
-            sheet.show(getParentFragmentManager(), source ? "pick_src" : "pick_tgt");
-        } catch (Throwable ignored) {
-        }
-    }
-
-    private void listenForPicks() {
-        getParentFragmentManager().setFragmentResultListener(REQ_SRC, getViewLifecycleOwner(),
-                (key, bundle) -> applyPick(bundle, true));
-        getParentFragmentManager().setFragmentResultListener(REQ_TGT, getViewLifecycleOwner(),
-                (key, bundle) -> applyPick(bundle, false));
-    }
-
-    private void applyPick(Bundle bundle, boolean source) {
-        String code = bundle == null ? null : bundle.getString(LanguagePickerSheet.ARG_CODE);
-        if (code == null) return;
-        if (source) {
-            if (code.equals(prefs.tgt())) prefs.setTgt(prefs.src());
-            prefs.setSrc(code);
-        } else {
-            if (code.equals(prefs.src())) prefs.setSrc(prefs.tgt());
-            prefs.setTgt(code);
-        }
-        applyLanguages();
-        hideResult();
-        vm.reset();
-    }
-
-    private void observe() {
-        vm.state().observe(getViewLifecycleOwner(), this::render);
-    }
-
     private void render(TranslateViewModel.State s) {
         if (s == null || b == null) return;
         switch (s.kind) {
@@ -227,17 +200,10 @@ public class TranslateFragment extends Fragment {
                 saved = false;
                 b.btnSave.setFilled(false);
                 b.btnSave.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_dim));
-                b.resultLang.setText(Langs.displayName(requireContext(), prefs.tgt()));
+                b.modeBadge.setText(s.mode == Translator.MODE_PHRASE
+                        ? R.string.mode_phrase : R.string.mode_words);
                 b.resultText.setText(s.text);
                 showResult();
-                break;
-            case TranslateViewModel.NEEDS_MODEL:
-                resetButton();
-                b.errorBar.setVisibility(View.VISIBLE);
-                b.errorText.setText(getString(R.string.model_missing,
-                        Langs.displayName(requireContext(), s.lang)));
-                b.btnRetry.setText(R.string.action_download);
-                b.btnRetry.setOnClickListener(v -> vm.downloadAndTranslate(s.lang));
                 break;
             case TranslateViewModel.ERROR:
                 resetButton();

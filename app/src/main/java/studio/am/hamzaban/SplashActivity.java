@@ -14,19 +14,10 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
-        route();
-    }
-
-    private void route() {
         Prefs prefs = new Prefs(this);
-        Intent next;
-        if (!prefs.onboarded()) {
-            next = new Intent(this, OnboardingActivity.class);
-        } else if (!prefs.setupDone()) {
-            next = new Intent(this, SetupActivity.class);
-        } else {
-            next = new Intent(this, MainActivity.class);
-        }
+        Intent next = prefs.onboarded()
+                ? new Intent(this, MainActivity.class)
+                : new Intent(this, OnboardingActivity.class);
         try {
             startActivity(next);
         } catch (Throwable ignored) {

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg">#FBFAF8</color>
+    <color name="bg">#F7F7FB</color>
     <color name="surface">#FFFFFF</color>
-    <color name="surface_alt">#F2F0EB</color>
-    <color name="stroke">#E7E3DB</color>
-    <color name="text">#14131A</color>
-    <color name="text_dim">#5A5864</color>
-    <color name="text_faint">#74727D</color>
-    <color name="btn">#14131A</color>
+    <color name="surface_alt">#EFEFF7</color>
+    <color name="stroke">#E3E3EE</color>
+    <color name="text">#0A0A12</color>
+    <color name="text_dim">#55556A</color>
+    <color name="text_faint">#74748A</color>
+    <color name="btn">#0A0A12</color>
     <color name="on_btn">#FFFFFF</color>
-    <color name="accent">#F2571F</color>
-    <color name="accent_text">#C2410C</color>
-    <color name="accent_soft">#FCEBE2</color>
+    <color name="accent">#5B4BF5</color>
+    <color name="accent_text">#4A3AD6</color>
+    <color name="accent_soft">#ECEAFF</color>
     <color name="on_accent">#FFFFFF</color>
-    <color name="brand">#0B0B0F</color>
+    <color name="brand">#07070D</color>
     <color name="on_brand">#FFFFFF</color>
-    <color name="ok">#1E9E5A</color>
-    <color name="danger">#D53B3B</color>
-    <color name="ripple">#1A14131A</color>
-    <color name="track">#EDEAE3</color>
+    <color name="ok">#0FA968</color>
+    <color name="danger">#C9333F</color>
+    <color name="ripple">#1A0A0A12</color>
+    <color name="track">#E6E6F0</color>
+    <color name="mint">#00C08B</color>
 </resources>

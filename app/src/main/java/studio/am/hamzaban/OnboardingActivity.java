@@ -3,12 +3,14 @@ package studio.am.hamzaban;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import androidx.annotation.Nullable;
 import android.view.animation.DecelerateInterpolator;
 
+import androidx.annotation.Nullable;
+
+import studio.am.hamzaban.core.Lexicon;
 import studio.am.hamzaban.data.Prefs;
 import studio.am.hamzaban.databinding.ActivityOnboardingBinding;
+import studio.am.hamzaban.util.Fa;
 import studio.am.hamzaban.util.Ui;
 
 public class OnboardingActivity extends BaseActivity {
@@ -25,18 +27,39 @@ public class OnboardingActivity extends BaseActivity {
 
         b.btnStart.setOnClickListener(v -> {
             new Prefs(this).setOnboarded(true);
-            startActivity(new Intent(this, SetupActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         });
 
+        b.statA.setText("—");
+        b.statB.setText(Fa.n(this, 0));
+        b.statC.setText(Fa.num(this, "100%"));
+        loadStats();
         playIntro();
     }
 
+    private void loadStats() {
+        final android.content.Context app = getApplicationContext();
+        new Thread(() -> {
+            String label = "—";
+            try {
+                Lexicon lex = Lexicon.get(app);
+                label = Fa.compact(OnboardingActivity.this, lex.recordCount());
+            } catch (Throwable ignored) {
+            }
+            final String value = label;
+            runOnUiThread(() -> {
+                if (b != null && !isFinishing()) {
+                    b.statA.setText(value);
+                }
+            });
+        }, "hz-stats").start();
+    }
+
     private void playIntro() {
-        View[] parts = {b.mark, b.title, b.sub, b.feature1, b.feature2, b.feature3, b.btnStart};
+        View[] parts = {b.title, b.sub, b.mark, b.feature1, b.feature2, b.feature3, b.btnStart};
         long delay = 40L;
-        for (int i = 0; i < parts.length; i++) {
-            View v = parts[i];
+        for (View v : parts) {
             v.setAlpha(0f);
             v.setTranslationY(Ui.dp(this, 16));
             v.animate()
@@ -48,9 +71,5 @@ public class OnboardingActivity extends BaseActivity {
                     .start();
             delay += 70L;
         }
-        b.mark.setScaleX(0.7f);
-        b.mark.setScaleY(0.7f);
-        b.mark.animate().scaleX(1f).scaleY(1f).setDuration(520)
-                .setInterpolator(new DecelerateInterpolator()).start();
     }
 }

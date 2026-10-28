@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">هم‌زبان</string>
-    <string name="tagline">۵۹ زبان، بدون نیاز به اینترنت</string>
+    <string name="tagline">فارسی ⇄ انگلیسی، کاملاً روی گوشی خودت</string>
     <string name="offline_badge">آفلاین</string>
-
-    <string name="label_from">از</string>
-    <string name="label_to">به</string>
+    <string name="lang_fa">فارسی</string>
+    <string name="lang_en">English</string>
     <string name="hint_input">متن را بنویسید یا بچسبانید…</string>
     <string name="action_translate">ترجمه کن</string>
     <string name="action_translating">در حال ترجمه…</string>
@@ -22,33 +21,26 @@
     <string name="action_delete">حذف</string>
     <string name="action_cancel">انصراف</string>
     <string name="action_ok">باشه</string>
-
-    <string name="empty_result_title">ترجمه اینجا نمایش داده می‌شود</string>
-    <string name="empty_result_sub">همه‌چیز روی دستگاه خودتان اجرا می‌شود.</string>
-
+    <string name="empty_result_title">ترجمه اینجا می‌نشیند</string>
+    <string name="empty_result_sub">بدون شبکه، بدون انتظار — داده از اول داخل برنامه است.</string>
     <string name="err_generic">مشکلی پیش آمد. دوباره تلاش کنید.</string>
-    <string name="err_network">این زبان به یک دانلود یک‌باره نیاز دارد. به اینترنت وصل شوید و دوباره تلاش کنید.</string>
     <string name="err_empty">اول چیزی بنویسید.</string>
-    <string name="model_missing">مدل %1$s هنوز دانلود نشده است.</string>
-    <string name="tts_unavailable">صدای این زبان روی دستگاه نصب نیست.</string>
-
+    <string name="err_not_found">هیچ‌کدام از این واژه‌ها در واژه‌نامهٔ آفلاین نبود.</string>
+    <string name="mode_phrase">عبارت دقیق</string>
+    <string name="mode_words">واژه‌به‌واژه</string>
     <string name="tab_translate">ترجمه</string>
     <string name="tab_history">تاریخچه</string>
     <string name="tab_saved">ذخیره‌ها</string>
     <string name="tab_settings">تنظیمات</string>
-
     <string name="history_title">تاریخچه</string>
     <string name="history_empty_title">هنوز ترجمه‌ای نیست</string>
     <string name="history_empty_sub">ترجمه‌ها فقط روی همین دستگاه می‌مانند.</string>
     <string name="history_clear">پاک کردن همه</string>
     <string name="history_clear_confirm">همهٔ ترجمه‌ها پاک شوند؟</string>
-
     <string name="saved_title">ذخیره‌ها</string>
     <string name="saved_empty_title">چیزی ذخیره نشده</string>
     <string name="saved_empty_sub">روی نشانکِ هر ترجمه بزنید تا اینجا بماند.</string>
-
     <string name="search_hint">جست‌وجو</string>
-
     <string name="settings_title">تنظیمات</string>
     <string name="set_appearance">ظاهر</string>
     <string name="set_theme">تم</string>
@@ -60,50 +52,32 @@
     <string name="font_small">کوچک</string>
     <string name="font_normal">معمولی</string>
     <string name="font_large">بزرگ</string>
-    <string name="set_models">مدل‌های آفلاین</string>
-    <string name="models_desc">مدل‌های زبانی دانلودشده. هرکدام را لازم ندارید پاک کنید تا فضا آزاد شود.</string>
-    <string name="models_empty">هنوز مدلی دانلود نشده است.</string>
-    <string name="models_add">افزودن زبان</string>
+    <string name="set_data">دادهٔ آفلاین</string>
+    <string name="data_desc">همه‌چیز داخل برنامه است. هیچ‌چیز دانلود نمی‌شود.</string>
+    <string name="data_entries">مدخل</string>
+    <string name="data_size">روی دیسک</string>
     <string name="set_about">درباره</string>
-    <string name="about_desc">مترجم آفلاینی که متن شما را هیچ‌جا نمی‌فرستد.</string>
+    <string name="about_desc">مترجم فارسی ⇄ انگلیسی که هرگز به شبکه دست نمی‌زند.</string>
     <string name="about_made">ساخته‌شده توسط امیرمهدی</string>
     <string name="about_version">نسخهٔ %1$s</string>
     <string name="about_source">متن‌باز در گیت‌هاب</string>
     <string name="about_license">مجوز MIT</string>
-
-    <string name="onb_title">ترجمه،\nبدون اینترنت.</string>
-    <string name="onb_sub">۵۹ زبان، کاملاً روی گوشی خودتان. بدون حساب کاربری، بدون ردیابی، بدون سرور.</string>
-    <string name="onb_f1_t">کاملاً آفلاین</string>
-    <string name="onb_f1_s">یک‌بار زبان را دانلود کنید، هرجا ترجمه کنید.</string>
-    <string name="onb_f2_t">خصوصی از پایه</string>
-    <string name="onb_f2_s">متن شما هرگز از دستگاه خارج نمی‌شود.</string>
-    <string name="onb_f3_t">سریع و سبک</string>
-    <string name="onb_f3_s">بدون تبلیغ، بدون شلوغی، بدون حواس‌پرتی.</string>
-    <string name="onb_start">شروع کنیم</string>
+    <string name="onb_title">ترجمه،
+آفلاین.</string>
+    <string name="onb_sub">فارسی ⇄ انگلیسی با یک‌چهارم میلیون عبارت و واژه که از اول داخل برنامه است. بدون حساب، بدون دانلود، بدون سرور.</string>
+    <string name="onb_f1">در یک ثانیه باز می‌شود و در حالت هواپیما کار می‌کند.</string>
+    <string name="onb_f2">متن شما هرگز از دستگاه خارج نمی‌شود.</string>
+    <string name="onb_f3">تاریخچه، نشانک، خواندن با صدا و اشتراک — همه محلی.</string>
+    <string name="onb_start">شروع</string>
     <string name="onb_note">داده‌ها روی همین دستگاه می‌مانند</string>
-
-    <string name="setup_title">آماده‌سازی مترجم</string>
-    <string name="setup_sub">مدل‌های زبانی یک‌بار دانلود می‌شوند. بعد از آن همه‌چیز آفلاین کار می‌کند.</string>
-    <string name="setup_step">در حال دانلود %1$s به %2$s</string>
-    <string name="setup_done_title">آماده است</string>
-    <string name="setup_done_sub">از این به بعد همه‌چیز آفلاین است.</string>
-    <string name="setup_cta">شروع ترجمه</string>
-    <string name="setup_failed">دانلود ناموفق بود. اتصال را بررسی کنید و دوباره تلاش کنید.</string>
-    <string name="setup_note">بدون نیاز به حساب کاربری</string>
-    <string name="setup_percent">%1$s٪</string>
-
-    <string name="lang_title_source">ترجمه از</string>
-    <string name="lang_title_target">ترجمه به</string>
-    <string name="lang_downloaded">دانلودشده</string>
-    <string name="lang_not_downloaded">دانلودنشده</string>
-    <string name="search_lang">جست‌وجوی زبان</string>
-    <string name="lang_downloading">در حال دانلود %1$s…</string>
-
+    <string name="stat_entries">مدخل</string>
+    <string name="stat_download">دانلود</string>
+    <string name="stat_offline">آفلاین</string>
     <string name="time_now">همین حالا</string>
     <string name="time_min">%1$s دقیقه پیش</string>
     <string name="time_hour">%1$s ساعت پیش</string>
     <string name="time_day">%1$s روز پیش</string>
-
+    <string name="tts_unavailable">صدای این زبان روی دستگاه نصب نیست.</string>
     <string name="cd_swap">جابه‌جایی زبان‌ها</string>
     <string name="cd_clear">پاک کردن متن</string>
     <string name="cd_copy">کپی ترجمه</string>
