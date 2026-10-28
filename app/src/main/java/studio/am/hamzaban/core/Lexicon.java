@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets;
  */
 public final class Lexicon {
 
-    private static final String ASSET = "lexicon.bin";
+    private static final String ASSET = "lexicon.binz";
     private static final String FILE = "lexicon.bin";
     private static final int HEADER = 40;
     private static final int SCAN_LIMIT = 96;
@@ -91,17 +91,20 @@ public final class Lexicon {
     private void extract(Context c, File target) throws IOException {
         File tmp = new File(target.getAbsolutePath() + ".tmp");
         InputStream raw = null;
+        java.util.zip.GZIPInputStream in = null;
         FileOutputStream out = null;
         try {
             raw = c.getAssets().open(ASSET);
+            in = new java.util.zip.GZIPInputStream(raw, 1 << 16);
             out = new FileOutputStream(tmp);
             byte[] buf = new byte[1 << 16];
             int n;
-            while ((n = raw.read(buf)) > 0) {
+            while ((n = in.read(buf)) > 0) {
                 out.write(buf, 0, n);
             }
             out.flush();
         } finally {
+            closeQuietly(in);
             closeQuietly(raw);
             closeQuietly(out);
         }

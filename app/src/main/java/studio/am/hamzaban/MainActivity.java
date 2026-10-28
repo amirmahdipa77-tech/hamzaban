@@ -96,6 +96,7 @@ public class MainActivity extends BaseActivity {
         }
         try {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.setCustomAnimations(R.anim.hz_in, R.anim.hz_out);
             if (current >= 0 && fragments[current] != null) {
                 ft.hide(fragments[current]);
                 ft.setMaxLifecycle(fragments[current], Lifecycle.State.STARTED);
