@@ -17,12 +17,12 @@
         android:strokeLineJoin="round" />
     <path
         android:pathData="M70,64 L38,64"
-        android:strokeColor="#FF8B7BFF"
+        android:strokeColor="#FF0969DA"
         android:strokeWidth="9"
         android:strokeLineCap="round" />
     <path
         android:pathData="M46,56 L38,64 L46,72"
-        android:strokeColor="#FF8B7BFF"
+        android:strokeColor="#FF0969DA"
         android:strokeWidth="9"
         android:strokeLineCap="round"
         android:strokeLineJoin="round" />

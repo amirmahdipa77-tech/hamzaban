@@ -120,8 +120,8 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.VH> {
             b.bodyText.setText(e.body);
             b.outText.setText(e.out);
             b.btnFav.setGlyph("bookmark", e.fav);
-            b.btnFav.setTextColor(itemView.getContext().getResources().getColor(
-                    e.fav ? R.color.accent_text : R.color.text_faint, itemView.getContext().getTheme()));
+            b.btnFav.setGlyphColor(itemView.getContext().getResources().getColor(
+                    e.fav ? R.color.accent : R.color.text_faint, itemView.getContext().getTheme()));
             b.btnFav.setOnClickListener(v -> {
                 if (listener != null) listener.onFav(e);
             });

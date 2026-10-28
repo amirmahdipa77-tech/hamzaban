@@ -3,58 +3,68 @@ package studio.am.hamzaban.ui.widget;
 import java.util.HashMap;
 import java.util.Map;
 
-/** Material Symbols Rounded glyph map (subset). */
+import studio.am.hamzaban.R;
+
+/** Maps semantic glyph names to the bundled Octicons drawables. */
 public final class Icons {
 
     private static final Map<String, Integer> MAP = new HashMap<>();
 
     static {
-        MAP.put("translate", 0xe8e2);
-        MAP.put("swap_horiz", 0xe8d4);
-        MAP.put("swap_vert", 0xe8d5);
-        MAP.put("content_copy", 0xe14d);
-        MAP.put("volume_up", 0xe050);
-        MAP.put("share", 0xe80d);
-        MAP.put("bookmark", 0xe8e7);
-        MAP.put("history", 0xe8b3);
-        MAP.put("settings", 0xe8b8);
-        MAP.put("delete", 0xe92e);
-        MAP.put("close", 0xe5cd);
-        MAP.put("check", 0xe668);
-        MAP.put("search", 0xef7a);
-        MAP.put("arrow_back", 0xe5c4);
-        MAP.put("expand_more", 0xe5cf);
-        MAP.put("download", 0xf090);
-        MAP.put("download_done", 0xf091);
-        MAP.put("star", 0xf09a);
-        MAP.put("chevron_right", 0xe5cc);
-        MAP.put("chevron_left", 0xe5cb);
-        MAP.put("refresh", 0xe5d5);
-        MAP.put("more_vert", 0xe5d4);
-        MAP.put("add", 0xe145);
-        MAP.put("dark_mode", 0xe51c);
-        MAP.put("light_mode", 0xe518);
-        MAP.put("language", 0xea07);
-        MAP.put("tune", 0xe429);
-        MAP.put("info", 0xe88e);
-        MAP.put("offline_bolt", 0xe932);
-        MAP.put("cloud_off", 0xe2c1);
-        MAP.put("autorenew", 0xe863);
-        MAP.put("auto_awesome", 0xe65f);
-        MAP.put("check_circle", 0xf0be);
-        MAP.put("wifi_off", 0xe648);
-        MAP.put("done_all", 0xe877);
-        MAP.put("edit", 0xf097);
-        MAP.put("stop", 0xe047);
-        MAP.put("record_voice_over", 0xe91f);
-        MAP.put("arrow_forward", 0xe5c8);
+        MAP.put("translate", R.drawable.oct_globe);
+        MAP.put("globe", R.drawable.oct_globe);
+        MAP.put("language", R.drawable.oct_globe);
+        MAP.put("swap_horiz", R.drawable.oct_arrow_switch);
+        MAP.put("swap_vert", R.drawable.oct_arrow_switch);
+        MAP.put("content_copy", R.drawable.oct_copy);
+        MAP.put("copy", R.drawable.oct_copy);
+        MAP.put("duplicate", R.drawable.oct_duplicate);
+        MAP.put("share", R.drawable.oct_share);
+        MAP.put("bookmark", R.drawable.oct_bookmark);
+        MAP.put("history", R.drawable.oct_history);
+        MAP.put("clock", R.drawable.oct_clock);
+        MAP.put("settings", R.drawable.oct_gear);
+        MAP.put("tune", R.drawable.oct_gear);
+        MAP.put("delete", R.drawable.oct_trash);
+        MAP.put("close", R.drawable.oct_x);
+        MAP.put("check", R.drawable.oct_check);
+        MAP.put("check_circle", R.drawable.oct_check_circle);
+        MAP.put("done_all", R.drawable.oct_check_circle);
+        MAP.put("search", R.drawable.oct_search);
+        MAP.put("chevron_right", R.drawable.oct_chevron_right);
+        MAP.put("chevron_left", R.drawable.oct_arrow_left);
+        MAP.put("arrow_forward", R.drawable.oct_arrow_right);
+        MAP.put("arrow_back", R.drawable.oct_arrow_left);
+        MAP.put("download", R.drawable.oct_download);
+        MAP.put("download_done", R.drawable.oct_download);
+        MAP.put("star", R.drawable.oct_star);
+        MAP.put("add", R.drawable.oct_plus);
+        MAP.put("dark_mode", R.drawable.oct_moon);
+        MAP.put("light_mode", R.drawable.oct_sun);
+        MAP.put("info", R.drawable.oct_info);
+        MAP.put("offline_bolt", R.drawable.oct_zap);
+        MAP.put("auto_awesome", R.drawable.oct_rocket);
+        MAP.put("volume_up", R.drawable.oct_unmute);
+        MAP.put("record_voice_over", R.drawable.oct_unmute);
+        MAP.put("refresh", R.drawable.oct_sync);
+        MAP.put("autorenew", R.drawable.oct_sync);
+        MAP.put("edit", R.drawable.oct_pencil);
+        MAP.put("more_vert", R.drawable.oct_kebab_horizontal);
+        MAP.put("code", R.drawable.oct_code);
+        MAP.put("repo", R.drawable.oct_repo);
+        MAP.put("shield", R.drawable.oct_shield_check);
+        MAP.put("link", R.drawable.oct_link);
+        MAP.put("eye", R.drawable.oct_eye);
+        MAP.put("tag", R.drawable.oct_tag);
+        MAP.put("pulse", R.drawable.oct_pulse);
+        MAP.put("comment", R.drawable.oct_comment);
     }
 
     private Icons() {
     }
 
-    public static int codepoint(String name) {
-        Integer cp = name == null ? null : MAP.get(name);
-        return cp == null ? 0xe8e2 : cp;
+    public static int drawable(String name) {
+        Integer id = name == null ? null : MAP.get(name);
+        return id == null ? R.drawable.oct_globe : id;
     }
 }

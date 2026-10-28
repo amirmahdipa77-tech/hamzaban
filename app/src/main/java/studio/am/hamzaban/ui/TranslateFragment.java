@@ -153,8 +153,7 @@ public class TranslateFragment extends Fragment {
             if (lastEntryId <= 0) return;
             saved = !saved;
             vm.setFav(lastEntryId, saved);
-            b.btnSave.setFilled(saved);
-            b.btnSave.setTextColor(ContextCompat.getColor(requireContext(),
+            b.btnSave.setGlyphColor(ContextCompat.getColor(requireContext(),
                     saved ? R.color.accent : R.color.text_dim));
             Ui.toast(requireContext(), getString(saved ? R.string.action_saved : R.string.action_removed));
         });
@@ -198,8 +197,7 @@ public class TranslateFragment extends Fragment {
                 b.errorBar.setVisibility(View.GONE);
                 lastEntryId = s.entryId;
                 saved = false;
-                b.btnSave.setFilled(false);
-                b.btnSave.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_dim));
+                b.btnSave.setGlyphColor(ContextCompat.getColor(requireContext(), R.color.text_dim));
                 b.modeBadge.setText(s.mode == Translator.MODE_PHRASE
                         ? R.string.mode_phrase : R.string.mode_words);
                 b.resultText.setText(s.text);

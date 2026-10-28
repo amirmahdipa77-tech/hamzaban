@@ -119,10 +119,10 @@ public class MainActivity extends BaseActivity {
     private void updateNav(int index, boolean animate) {
         for (int i = 0; i < TAB_COUNT; i++) {
             boolean active = i == index;
-            int color = ContextCompat.getColor(this, active ? R.color.text : R.color.text_dim);
+            int color = ContextCompat.getColor(this, active ? R.color.accent : R.color.text_dim);
             try {
                 navIcons[i].setFilled(active);
-                navIcons[i].setTextColor(color);
+                navIcons[i].setGlyphColor(color);
                 navLabels[i].setTextColor(color);
                 navLabels[i].setTypeface(null, active ? Typeface.BOLD : Typeface.NORMAL);
             } catch (Throwable ignored) {
