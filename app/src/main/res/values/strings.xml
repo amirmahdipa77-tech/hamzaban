@@ -91,6 +91,10 @@ offline.</string>
     <string name="engine_loading">Preparing…</string>
     <string name="mode_nmt">Neural</string>
     <string name="mode_preparing">Preparing</string>
-    <string name="empty_result_sub">Type and it translates as you go.</string>
     <string name="hint_input">Type or paste text…</string>
+    <string name="empty_hero">Type. It translates.</string>
+    <string name="empty_result_sub">Persian ⇄ English, live, on your device.</string>
+    <string name="suggest_1">Hello</string>
+    <string name="suggest_2">How are you?</string>
+    <string name="suggest_3">Thank you</string>
 </resources>

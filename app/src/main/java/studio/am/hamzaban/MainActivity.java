@@ -1,5 +1,7 @@
 package studio.am.hamzaban;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -13,7 +15,6 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import studio.am.hamzaban.data.Prefs;
@@ -24,7 +25,7 @@ import studio.am.hamzaban.vm.TranslateViewModel;
 
 public class MainActivity extends BaseActivity {
 
-    private static final long DEBOUNCE_MS = 320L;
+    private static final long DEBOUNCE_MS = 300L;
 
     private ActivityMainBinding b;
     private TranslateViewModel vm;
@@ -34,6 +35,8 @@ public class MainActivity extends BaseActivity {
     private final Handler debounce = new Handler(Looper.getMainLooper());
     private Runnable pending;
     private float swapRotation;
+    private ObjectAnimator pulse;
+    private String lastRendered = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class MainActivity extends BaseActivity {
 
         renderDirection();
         wire();
+        startPulse();
         vm.state().observe(this, this::render);
         vm.warmEngine(prefs.src(), prefs.tgt());
     }
@@ -61,6 +65,17 @@ public class MainActivity extends BaseActivity {
     private void renderDirection() {
         b.langFrom.setText(toEnglish() ? R.string.lang_fa : R.string.lang_en);
         b.langTo.setText(toEnglish() ? R.string.lang_en : R.string.lang_fa);
+    }
+
+    private void startPulse() {
+        try {
+            pulse = ObjectAnimator.ofFloat(b.liveDot, "alpha", 1f, 0.2f);
+            pulse.setDuration(850);
+            pulse.setRepeatMode(ValueAnimator.REVERSE);
+            pulse.setRepeatCount(ValueAnimator.INFINITE);
+            pulse.start();
+        } catch (Throwable ignored) {
+        }
     }
 
     private void wire() {
@@ -79,14 +94,25 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        b.langChip.setOnClickListener(v -> swap());
         b.btnSwap.setOnClickListener(v -> swap());
+        b.langFrom.setOnClickListener(v -> swap());
+        b.langTo.setOnClickListener(v -> swap());
         b.btnSettings.setOnClickListener(v ->
                 startActivity(new Intent(this, SettingsActivity.class)));
 
         b.btnCopy.setOnClickListener(v -> copyResult());
         b.btnShare.setOnClickListener(v -> shareResult());
         b.btnSpeak.setOnClickListener(v -> tts.speak(this, resultText(), prefs.tgt()));
+
+        b.chip1.setOnClickListener(v -> useSuggestion(getString(R.string.suggest_1)));
+        b.chip2.setOnClickListener(v -> useSuggestion(getString(R.string.suggest_2)));
+        b.chip3.setOnClickListener(v -> useSuggestion(getString(R.string.suggest_3)));
+    }
+
+    private void useSuggestion(String value) {
+        b.srcInput.setText(value);
+        b.srcInput.setSelection(value.length());
+        schedule();
     }
 
     private void schedule() {
@@ -106,10 +132,13 @@ public class MainActivity extends BaseActivity {
         prefs.setTgt(toEn ? "fa" : "en");
         swapRotation += 180f;
         b.btnSwap.animate().rotation(swapRotation)
-                .setDuration(220)
+                .setDuration(260)
                 .setInterpolator(new DecelerateInterpolator())
                 .start();
-        renderDirection();
+        b.langRail.animate().alpha(0.35f).setDuration(90).withEndAction(() -> {
+            renderDirection();
+            b.langRail.animate().alpha(1f).setDuration(160).start();
+        }).start();
         vm.reset();
         vm.warmEngine(prefs.src(), prefs.tgt());
         schedule();
@@ -129,11 +158,11 @@ public class MainActivity extends BaseActivity {
         if (s.kind == TranslateViewModel.IDLE) {
             b.emptyState.setVisibility(View.VISIBLE);
             b.resultScroll.setVisibility(View.GONE);
+            lastRendered = "";
             return;
         }
         b.emptyState.setVisibility(View.GONE);
         b.resultScroll.setVisibility(View.VISIBLE);
-        b.resultText.setText(s.text);
 
         int badge;
         if (s.mode == 3) {
@@ -143,11 +172,19 @@ public class MainActivity extends BaseActivity {
         } else if (s.mode == 2) {
             badge = R.string.mode_words;
         } else {
-            badge = s.engineReady ? R.string.mode_phrase : R.string.mode_preparing;
+            badge = R.string.mode_preparing;
         }
         b.modeBadge.setText(badge);
         b.modeBadge.setVisibility(View.VISIBLE);
-        b.resultText.setTextColor(ContextCompat.getColor(this, R.color.text));
+
+        String next = s.text == null ? "" : s.text;
+        if (!next.equals(lastRendered)) {
+            lastRendered = next;
+            b.resultText.setText(next);
+            b.resultText.setAlpha(0.25f);
+            b.resultText.animate().alpha(1f).setDuration(180)
+                    .setInterpolator(new DecelerateInterpolator()).start();
+        }
     }
 
     private void copyResult() {
@@ -177,6 +214,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         if (pending != null) debounce.removeCallbacks(pending);
+        if (pulse != null) pulse.cancel();
         if (tts != null) tts.shutdown();
         tts = null;
         super.onDestroy();

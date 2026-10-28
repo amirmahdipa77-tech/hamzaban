@@ -91,6 +91,10 @@
     <string name="engine_loading">در حال آماده‌سازی…</string>
     <string name="mode_nmt">عصبی</string>
     <string name="mode_preparing">آماده‌سازی</string>
-    <string name="empty_result_sub">بنویسید تا همان لحظه ترجمه شود.</string>
     <string name="hint_input">متن را بنویسید یا بچسبانید…</string>
+    <string name="empty_hero">بنویس، ترجمه می‌شود.</string>
+    <string name="empty_result_sub">فارسی ⇄ انگلیسی، هم‌زمان، روی دستگاه خودت.</string>
+    <string name="suggest_1">سلام</string>
+    <string name="suggest_2">حال شما چطور است؟</string>
+    <string name="suggest_3">ممنون</string>
 </resources>
