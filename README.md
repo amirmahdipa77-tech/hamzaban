@@ -64,7 +64,7 @@ chmod +x gradlew
 - **XML layout + ViewBinding**، MVVM سبک با `ViewModel` + `LiveData`
 - **SQLite** خام برای تاریخچه، بدون annotation processor
 - واژه‌نامه در یک فایل باینری مرتب‌شده بر اساس هش FNV-1a، با ایندکس تُنُک؛ در زمان اجرا با `MappedByteBuffer` خوانده می‌شود (بدون بارگذاری کامل در حافظه)
-- آیکون‌ها: Material Symbols Rounded، زیرمجموعه‌شده به یک فونت ~۹ کیلوبایتی
+- طراحی و آیکون‌ها از GitHub الگو گرفته شده‌اند: توکن‌های Primer و Octicons
 
 ```
 app/src/main/java/studio/am/hamzaban/
@@ -130,7 +130,7 @@ The lexicon is already committed at `app/src/main/assets/lexicon.binz`, so the b
 
 ### Architecture
 
-Java 17 + AndroidX (AppCompat, no Compose, no Material Components), XML layouts with ViewBinding, lightweight MVVM, plain SQLite, and a hash-sorted binary lexicon read through a `MappedByteBuffer` with a sparse index — no full load into memory. Icons are Material Symbols Rounded, subset into a ~9 KB font.
+Java 17 + AndroidX (AppCompat, no Compose, no Material Components), XML layouts with ViewBinding, lightweight MVVM, plain SQLite, and a hash-sorted binary lexicon read through a `MappedByteBuffer` with a sparse index — no full load into memory. Icons are GitHub's Octicons, converted to vector drawables, and the whole visual system follows GitHub's Primer design tokens.
 
 ### Privacy
 
